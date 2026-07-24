@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: api-key-manager > admin transact API
+  version: 1.0.0
+servers:
+- url: https://api.syndicate.io
+  description: Production
+tags:
+- name: transact
+paths:
+  /transact/sendTransaction:
+    post:
+      operationId: send-transaction
+      summary: Send Transaction
+      description: Send transaction to blockchain
+      tags:
+      - transact
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_transact:SendTransactionResponse'
+        '400':
+          description: Error response with status 400
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_transact:ErrorBody'
+        '409':
+          description: Error response with status 409
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_transact:ErrorBody'
+        '422':
+          description: Error response with status 422
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_transact:ErrorBody'
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_transact:SendTransactionRequest'
+components:
+  schemas:
+    type_transact:SendTransactionResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          format: uuid
+      required:
+      - transactionId
+      title: SendTransactionResponse
+    type_transact:ErrorBody:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      title: ErrorBody
+    type_transact:SendTransactionRequest:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+          description: (Optional) ID of the request. Needs to be a valid UUID. If provided, it will be saved and returned as the transactionId of the response. If not provided, we will generate one for you and return it as the transactionId.
+        projectId:
+          type: string
+          format: uuid
+          description: ID of the project you want this request to be sent from
+        contractAddress:
+          type: string
+          description: The contract address to send request to
+        chainId:
+          type: integer
+          format: int64
+          description: The chain ID for the network (e.g. 1 for Ethereum Mainnet, 137 for Polygon Mainnet, 80001 for Polygon Mumbai). For a complete list of chain IDs, see [ChainList](https://chainlist.org/?search=&testnets=true).
+        functionSignature:
+          type: string
+          description: The human readable signature to call on the contract
+        args:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: (Optional) The function arguments for the transaction if any. The keys are the argument names or index from the provided function signature and the values are the argument values.
+      required:
+      - projectId
+      - contractAddress
+      - chainId
+      - functionSignature
+      title: SendTransactionRequest
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer

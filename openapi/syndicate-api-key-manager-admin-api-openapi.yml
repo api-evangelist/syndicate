@@ -1,0 +1,397 @@
+openapi: 3.1.0
+info:
+  title: api-key-manager > admin API
+  version: 1.0.0
+servers:
+- url: https://api.syndicate.io
+  description: Production
+tags:
+- name: api-key-manager > admin
+paths:
+  /admin/project:
+    post:
+      operationId: create-project
+      summary: Create Project
+      description: Create a new project. Only available with environment wide API keys.
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+        '400':
+          description: Error response with status 400
+        '403':
+          description: Error response with status 403
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_api-key-manager/admin:CreateProjectRequest'
+  /admin/project/{projectId}/updateName:
+    post:
+      operationId: update-project-name
+      summary: Update Project Name
+      description: Update a project name
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+        '400':
+          description: Error response with status 400
+        '401':
+          description: Error response with status 401
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_api-key-manager/admin:UpdateProjectNameRequest'
+  /admin/project/{projectId}:
+    get:
+      operationId: get-project
+      summary: Get Project
+      description: Get a specific project
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+        '401':
+          description: Error response with status 401
+  /admin/contract/authorizeWithFunctionSignatures:
+    post:
+      operationId: authorize-contract-with-function-signatures
+      summary: Authorize Contract With Function Signatures
+      description: Authorize a contract with function signatures
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '409':
+          description: Error response with status 409
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_api-key-manager/admin:AuthorizeContractWithFunctionSignaturesRequest'
+  /admin/contract/authorizeWithJSONABI:
+    post:
+      operationId: authorize-contract-with-jsonabi
+      summary: Authorize Contract With JSONABI
+      description: Authorize a contract and its corresponding function signatures using the JSON ABI format.
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '409':
+          description: Error response with status 409
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_api-key-manager/admin:AuthorizeContractWithJSONABIRequest'
+  /admin/project/{projectId}/contract/{chainId}/{contractAddress}/claim:
+    post:
+      operationId: claim-contract
+      summary: Claim Contract
+      description: Claim a contract. This contract must be authorized in your project first. See [Authorize Contract with Function Signatures](https://docs.syndicate.io/open-api/admin/authorize-with-fn-sigs) to authorize a contract in your project.
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: chainId
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: contractAddress
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+  /admin/project/{projectId}/contract/{contractId}:
+    delete:
+      operationId: delete-contract
+      summary: Delete Contract
+      description: Delete a contract
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: contractId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+  /admin/project/{projectId}/functionSignature/{functionSignatureId}:
+    delete:
+      operationId: delete-function-signature
+      summary: Delete Function Signature
+      description: Delete a function signature
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: functionSignatureId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+  /admin/allowedIP:
+    post:
+      operationId: create-allowed-ip-range
+      summary: Create Allowed IP Range
+      description: Create an IP range allowlist
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/type_api-key-manager/admin:AllowlistIpRange'
+        '400':
+          description: Error response with status 400
+        '401':
+          description: Error response with status 401
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_api-key-manager/admin:CreateAllowedIPRangeRequest'
+  /admin/project/{projectId}/allowedIPRanges:
+    get:
+      operationId: get-project-allowed-ip-ranges
+      summary: Get Project Allowed IP Ranges
+      description: Get allowed IP ranges by project ID
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/type_api-key-manager/admin:AllowlistIpRange'
+        '401':
+          description: Error response with status 401
+  /admin/project/{projectId}/allowedIP/{IPId}:
+    delete:
+      operationId: delete-allowed-ip-range
+      summary: Delete Allowed IP Range
+      description: Delete an IP range allowlist
+      tags:
+      - api-key-manager > admin
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: IPId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Error response with status 400
+        '404':
+          description: Error response with status 404
+        '500':
+          description: Error response with status 500
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer

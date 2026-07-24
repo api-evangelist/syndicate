@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: api-key-manager > admin call API
+  version: 1.0.0
+servers:
+- url: https://api.syndicate.io
+  description: Production
+tags:
+- name: call
+paths:
+  /transact/call:
+    post:
+      operationId: call
+      summary: Call View Function
+      description: Read data from a view function on a smart contract
+      tags:
+      - call
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer authentication
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Response with status 200
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/type_call:ReadContractRequest'
+components:
+  schemas:
+    type_call:ReadContractRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+          format: int64
+          description: The chain ID for the network
+        functionSignature:
+          type: string
+          description: The human readable ABI function signature you want to call
+        contractAddress:
+          type: string
+          description: The contract address to read from
+        args:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: (Optional) The function arguments if any. The keys are the argument names or index from the provided function signature and the values are the argument values
+      required:
+      - chainId
+      - functionSignature
+      - contractAddress
+      title: ReadContractRequest
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
