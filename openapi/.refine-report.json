@@ -1,0 +1,29 @@
+{
+  "provider": "syndicate",
+  "sources": [
+    "syndicate-api-key-manager-admin-api-openapi.yml",
+    "syndicate-call-api-openapi.yml",
+    "syndicate-transact-api-openapi.yml",
+    "syndicate-wallet-api-openapi.yml"
+  ],
+  "outputs": [
+    "syndicate-api-key-manager-admin-api-openapi.yml",
+    "syndicate-call-api-openapi.yml",
+    "syndicate-transact-api-openapi.yml",
+    "syndicate-wallet-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AllowlistIpRange",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithFunctionSignaturesRequest",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithJSONABIRequest",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Contract",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateAllowedIPRangeRequest",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateProjectRequest",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Project",
+    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:UpdateProjectNameRequest"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

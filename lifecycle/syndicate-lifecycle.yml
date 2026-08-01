@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://tc.docs.syndicate.io/infrastructure/overview
+versioning:
+  scheme: none-visible
+  current: '1.0.0'
+  note: >-
+    OpenAPI info.version is 1.0.0; the production base URL (api.syndicate.io) is
+    not version-prefixed and the docs do not publish a formal versioning policy.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: no deprecation/sunset policy documented
+sla:
+  url: null
+  note: >-
+    Docs cite "up to 5,000 RPS" throughput and enterprise reliability
+    (fault tolerance, automatic chain re-org resolution) but publish no formal
+    uptime SLA. High-throughput tiers are sales-gated (contact us).
+status_page: null
+status_page_note: status.syndicate.io did not resolve at probe time
+deprecated_operations: []
+reliability:
+  features:
+  - guaranteed idempotency
+  - automatic chain re-org resolution
+  - dropped/stuck transaction resubmission
+  - HSM-secured key management

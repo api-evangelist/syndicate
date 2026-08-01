@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://tc.docs.syndicate.io/get-started/quickstart
+model: testnet-vs-mainnet
+note: >-
+  Syndicate has no separate sandbox host or test/live key prefix. Test vs
+  production is selected by the EVM chainId in the request: use a testnet chainId
+  to operate against test networks with faucet-funded gas. There are no "magic"
+  test values to fabricate — the safe testing surface is the public EVM testnets
+  below.
+testnets_supported:
+- name: Ethereum Sepolia
+  chainId: 11155111
+- name: Arbitrum Sepolia
+  chainId: 421614
+- name: Base Sepolia
+  chainId: 84532
+- name: Optimism Sepolia
+  chainId: 11155420
+faucets:
+- https://faucet.triangleplatform.com
+- Alchemy Sepolia faucet
+free_tier:
+  note: >-
+    A free organization/project (with an auto-generated API key and transaction
+    wallet) can be created at the dashboard to test end-to-end.
+  signup: https://dashboard.syndicate.io/signup

@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/package/@syndicateio/syndicate-node
+packages:
+- language: javascript
+  registry: npm
+  name: "@syndicateio/syndicate-node"
+  version: 1.0.1
+  url: https://www.npmjs.com/package/@syndicateio/syndicate-node
+  repository: https://github.com/SyndicateProtocol/syndicate-node
+  install: npm install @syndicateio/syndicate-node
+  description: Official Node.js / TypeScript SDK for the Syndicate Transaction Cloud API.
+  official: true
+notes: >-
+  Only the first-party Node.js SDK was found in public registries. No official
+  first-party Python, Go, Java, Ruby, PHP, .NET, or Rust client library was
+  discovered on PyPI, pkg.go.dev, Maven Central, RubyGems, Packagist, NuGet, or
+  crates.io as of the search date. The GitHub org (SyndicateProtocol) also
+  publishes smart-contract and infra repos (onchainkit, syndicate-appchains,
+  synddb) that are not REST API client SDKs.

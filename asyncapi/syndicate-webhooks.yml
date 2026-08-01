@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://tc.docs.syndicate.io/infrastructure/webhooks
+type: Webhooks
+spec_type: none
+note: >-
+  Syndicate documents a webhook service but publishes no AsyncAPI document, so
+  this artifact captures the webhook catalog (type Webhooks) rather than an
+  AsyncAPI spec. NEVER fabricated — the shapes below are taken verbatim from the
+  webhooks docs.
+subscription:
+  note: >-
+    A single API call subscribes to all transaction status updates for a
+    project; webhooks reconcile on-chain and off-chain sources for accuracy and
+    are designed for reliability (faster than traditional indexers).
+signing:
+  header: Syndicate-Signature
+  algorithm: HMAC-SHA256
+  secret: per-endpoint signing secret
+  format: 't=<unix_ms>,s=<hex_hmac>'
+  example: 'syndicate-signature: t=823230245000,s=e212625c3ee9a48f940aab506f8c65915f4512fa0da46bc960878eb413d024b7'
+  replay_protection: reject events whose timestamp is older than 5 minutes
+  signed_payload_note: >-
+    HMAC is computed over the JSON body plus an appended triggeredAt field,
+    with keys in alphabetical order.
+envelope:
+  fields:
+    data: CallbackInformation (event-specific object)
+    eventType: EventType
+    messageId: UUID
+    triggeredAt: unix timestamp (ms, added for signature computation)
+events:
+- type: TransactionStatusChange
+  description: >-
+    Emitted when a transaction request changes status (e.g. PENDING, SUBMITTED,
+    PROCESSED, CONFIRMED). Lets apps re-render, push notifications, or trigger
+    background jobs as soon as a transaction is confirmed on-chain.

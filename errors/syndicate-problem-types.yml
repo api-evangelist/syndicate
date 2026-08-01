@@ -1,0 +1,104 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/syndicate-transaction-cloud-openapi-original.yml
+format: json
+note: Syndicate returns a flat ErrorBody { message } envelope (not RFC 9457 problem+json). HTTP status
+  carries the error class.
+envelope:
+  schema: ErrorBody
+  fields:
+    message: string (human-readable error message)
+problems:
+- status: 400
+  title: Bad Request
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: Validate the request body against the OpenAPI schema; check functionSignature and args.
+  operations:
+  - authorize-contract-with-function-signatures
+  - authorize-contract-with-jsonabi
+  - claim-contract
+  - create-allowed-ip-range
+  - create-project
+  - delete-allowed-ip-range
+  - delete-contract
+  - delete-function-signature
+  - get-personal-signature
+  - get-signature
+  - personal-sign
+  - send-transaction
+  - sign-typed-data
+  - sign-typed-data-with-lookup
+  - update-project-name
+- status: 401
+  title: Unauthorized
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: 'Provide a valid Authorization: Bearer <api-key> header.'
+  operations:
+  - create-allowed-ip-range
+  - get-project
+  - get-project-allowed-ip-ranges
+  - update-project-name
+- status: 403
+  title: Forbidden
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: Ensure the API key has access to the project and the caller IP is within an allowed IP
+    range.
+  operations:
+  - create-project
+- status: 404
+  title: Not Found
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: Verify the projectId, transactionId, contractId or signatureId in the path exists.
+  operations:
+  - authorize-contract-with-function-signatures
+  - authorize-contract-with-jsonabi
+  - claim-contract
+  - create-allowed-ip-range
+  - create-project
+  - delete-allowed-ip-range
+  - delete-contract
+  - delete-function-signature
+  - get-transaction-request
+  - get-transaction-requests-by-project
+- status: 409
+  title: Conflict
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: A request with this requestId/signatureId already exists (idempotent replay); reuse the
+    original result or supply a new UUID.
+  operations:
+  - authorize-contract-with-function-signatures
+  - authorize-contract-with-jsonabi
+  - send-transaction
+- status: 422
+  title: Unprocessable Entity
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: The request was well-formed but semantically invalid (e.g. unauthorized contract or malformed
+    ABI).
+  operations:
+  - send-transaction
+- status: 500
+  title: Internal Server Error
+  envelope: 'ErrorBody { message: string }'
+  content_type: application/json
+  remediation: Transient server error; retry with the same requestId (idempotent) or contact support.
+  operations:
+  - authorize-contract-with-function-signatures
+  - authorize-contract-with-jsonabi
+  - claim-contract
+  - create-allowed-ip-range
+  - create-project
+  - delete-allowed-ip-range
+  - delete-contract
+  - delete-function-signature
+  - get-wallets-by-project
+  - personal-sign
+  - send-transaction
+  - sign-typed-data
+  - sign-typed-data-with-lookup
+  - update-project-name

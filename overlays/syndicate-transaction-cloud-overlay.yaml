@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Syndicate Transaction Cloud
+  version: 1.0.0
+extends: openapi/syndicate-transaction-cloud-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-21'
+    x-provider: Syndicate
+    x-product: Transaction Cloud
+    x-backed-by: a16z crypto
+    x-idempotency:
+      supported: true
+      mechanism: requestId (transactions) / signatureId (signatures)
+      note: >-
+        Optional client-supplied UUID makes send/sign operations idempotent;
+        a duplicate id returns HTTP 409.
+- target: $.info
+  update:
+    description: >-
+      Syndicate Transaction Cloud REST API. Broadcast and monitor EVM
+      transactions, sign EIP-191 and EIP-712 messages, manage projects,
+      authorize contracts and function signatures, allowlist IP ranges, and
+      read project wallets. Authentication is HTTP Bearer (API key). Wallets and
+      private keys are managed in HSM enclaves.
+- target: $.servers
+  update:
+  - url: https://api.syndicate.io
+    description: Production

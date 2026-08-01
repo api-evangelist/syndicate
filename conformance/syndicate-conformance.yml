@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/syndicate-transaction-cloud-openapi-original.yml
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: spec is a valid OpenAPI 3.1.0 document
+- id: http-bearer-auth
+  conforms: true
+  evidence: components.securitySchemes.default is type http scheme bearer
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 security scheme declared
+- id: openidconnect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use a flat ErrorBody { message } JSON envelope, not application/problem+json
+- id: idempotency
+  conforms: true
+  evidence: >-
+    client-supplied requestId (transactions) / signatureId (signatures) UUIDs
+    make write operations idempotent; duplicate ids return HTTP 409
+- id: webhook-signing-hmac-sha256
+  conforms: true
+  evidence: >-
+    webhooks are signed with a Syndicate-Signature HMAC-SHA256 header including a
+    timestamp for replay protection
+- id: eip-191-personal-sign
+  conforms: true
+  evidence: /wallet/project/{projectId}/personalSign operation
+- id: eip-712-typed-data
+  conforms: true
+  evidence: /wallet/project/{projectId}/signTypedData operations with EIP712Domain schema
+- id: json-api
+  conforms: false
+- id: rfc8594-sunset
+  conforms: false
+  evidence: no deprecation/sunset header policy documented
+note: >-
+  Derived from the OpenAPI spec and public docs. No published third-party
+  security/compliance certification program (SOC 2, ISO 27001, PCI, HIPAA,
+  FedRAMP) was found, so no Compliance pointer is asserted.

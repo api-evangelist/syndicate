@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://tc.docs.syndicate.io/infrastructure/transaction-broadcasting
+authentication:
+  style: http-bearer
+  header: 'Authorization: Bearer <api-key>'
+  note: API keys are scoped to a project; environment-wide keys can create projects.
+  ref: authentication/syndicate-authentication.yml
+idempotency:
+  supported: true
+  mechanism: client-supplied UUID
+  fields:
+  - name: requestId
+    scope: transactions (POST /transact/sendTransaction)
+    optional: true
+    behavior: >-
+      If provided (valid UUID) it is saved and returned; a duplicate returns
+      HTTP 409. If omitted, Syndicate generates one and returns it.
+  - name: signatureId
+    scope: signatures (personalSign / signTypedData / signTypedDataWithLookup)
+    optional: true
+    behavior: same as requestId, for signing operations
+  guarantee: >-
+    Syndicate advertises "guaranteed idempotency" — a valid transaction is
+    delivered on-chain exactly once regardless of retries, re-orgs, or dropped
+    transactions.
+pagination:
+  style: unknown
+  note: >-
+    Collection endpoints (get-transaction-requests-by-project,
+    get-transactions-by-project, get-project-signatures) exist; the OpenAPI does
+    not declare explicit cursor/offset pagination parameters.
+error_envelope:
+  shape: 'ErrorBody { message: string }'
+  content_type: application/json
+  format: non-rfc9457
+  ref: errors/syndicate-problem-types.yml
+request_tracing:
+  note: requestId doubles as the client-side correlation id for a transaction.
+versioning:
+  ref: lifecycle/syndicate-lifecycle.yml
+  scheme: none-visible
+rate_limiting:
+  note: >-
+    Throughput up to ~5,000 RPS on enterprise tiers; no documented per-key
+    rate-limit response headers found.
+ip_allowlisting:
+  supported: true
+  note: >-
+    Projects can restrict API access to allowed IP ranges via /admin/allowedIP
+    (403 when caller IP is outside the range).
+webhooks:
+  ref: asyncapi/syndicate-webhooks.yml
+  signing: Syndicate-Signature HMAC-SHA256 with timestamp (replay protection)

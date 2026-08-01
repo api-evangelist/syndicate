@@ -1,0 +1,57 @@
+# Syndicate Docs
+
+## Instructions for AI Agents
+
+- For clean Markdown of any page, append `.md` to the page URL
+- For section-specific indexes, append `/llms.txt` to any section URL
+- For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://tc.docs.syndicate.io/_mcp/server
+
+## Docs
+
+- [Why Syndicate](https://tc.docs.syndicate.io/get-started/introduction.md)
+- [Quickstart](https://tc.docs.syndicate.io/get-started/quickstart.md)
+- [Overview](https://tc.docs.syndicate.io/infrastructure/overview.md)
+- [Transaction Broadcasting](https://tc.docs.syndicate.io/infrastructure/transaction-broadcasting.md)
+- [Lifecycle of a Syndicate Transaction](https://tc.docs.syndicate.io/infrastructure/lifecycle-of-a-transaction.md)
+- [Signing & Attestations](https://tc.docs.syndicate.io/infrastructure/signing-and-attestations.md)
+- [Webhooks](https://tc.docs.syndicate.io/infrastructure/webhooks.md)
+- [Managed Gas](https://tc.docs.syndicate.io/infrastructure/managed-gas.md)
+- [L2 / L3 Chains](https://tc.docs.syndicate.io/infrastructure/l2-l3s.md)
+- [Smart RPC](https://tc.docs.syndicate.io/infrastructure/smart-rpc.md)
+- [Mirrors](https://tc.docs.syndicate.io/infrastructure/mirrors.md)
+- [Send and Monitor Transactions](https://tc.docs.syndicate.io/guides/transactions.md)
+- [IP Allowlisting](https://tc.docs.syndicate.io/guides/ip-range.md)
+- [Mirrors](https://tc.docs.syndicate.io/guides/mirrors.md)
+
+## API Docs
+
+- API > Admin > Projects [Create Project](https://tc.docs.syndicate.io/api/admin/projects/create-project.md)
+- API > Admin > Projects [Update Project Name](https://tc.docs.syndicate.io/api/admin/projects/update-project-name.md)
+- API > Admin > Projects [Get Project](https://tc.docs.syndicate.io/api/admin/projects/get-project.md)
+- API > Admin > Contracts & Function Signatures [Authorize Contract With Function Signatures](https://tc.docs.syndicate.io/api/admin/contracts-function-signatures/authorize-contract-with-function-signatures.md)
+- API > Admin > Contracts & Function Signatures [Authorize Contract with JSON ABI](https://tc.docs.syndicate.io/api/admin/contracts-function-signatures/authorize-contract-with-jsonabi.md)
+- API > Admin > Contracts & Function Signatures [Claim Contract](https://tc.docs.syndicate.io/api/admin/contracts-function-signatures/claim-contract.md)
+- API > Admin > Contracts & Function Signatures [Delete Contract](https://tc.docs.syndicate.io/api/admin/contracts-function-signatures/delete-contract.md)
+- API > Admin > Contracts & Function Signatures [Delete Function Signature](https://tc.docs.syndicate.io/api/admin/contracts-function-signatures/delete-function-signature.md)
+- API > Admin > IP Ranges [Create Allowed IP Range](https://tc.docs.syndicate.io/api/admin/ip-ranges/create-allowed-ip-range.md)
+- API > Admin > IP Ranges [Get Project Allowed IP Ranges](https://tc.docs.syndicate.io/api/admin/ip-ranges/get-project-allowed-ip-ranges.md)
+- API > Admin > IP Ranges [Delete Allowed IP Range](https://tc.docs.syndicate.io/api/admin/ip-ranges/delete-allowed-ip-range.md)
+- API > Signatures [Personal Sign](https://tc.docs.syndicate.io/api/signatures/personal-sign.md)
+- API > Signatures [Sign Typed Data](https://tc.docs.syndicate.io/api/signatures/sign-typed-data.md)
+- API > Signatures [Sign Typed Data With Lookup](https://tc.docs.syndicate.io/api/signatures/sign-typed-data-with-lookup.md)
+- API > Signatures [Get EIP191 Personal Signatures by Project](https://tc.docs.syndicate.io/api/signatures/get-project-personal-signatures.md)
+- API > Signatures [Get EIP191 Personal Signature by ID](https://tc.docs.syndicate.io/api/signatures/get-personal-signature.md)
+- API > Signatures [Get EIP712 Typed Data Signatures by Project](https://tc.docs.syndicate.io/api/signatures/get-project-signatures.md)
+- API > Signatures [GET EIP712 Typed Data Signature by ID](https://tc.docs.syndicate.io/api/signatures/get-signature.md)
+- API > Transactions [Get Transaction Request by ID](https://tc.docs.syndicate.io/api/transactions/get-transaction-request.md)
+- API > Transactions [Get Transaction Requests By Project](https://tc.docs.syndicate.io/api/transactions/get-transaction-requests-by-project.md)
+- API > Transactions [Get Transactions Attempts by Project](https://tc.docs.syndicate.io/api/transactions/get-transactions-by-project.md)
+- API > Transactions [Send Transaction](https://tc.docs.syndicate.io/api/transactions/send-transaction.md)
+- API > Transactions [Call View Function](https://tc.docs.syndicate.io/api/transactions/call.md)
+- API > Wallets [Get Wallets By Project](https://tc.docs.syndicate.io/api/wallet/get-wallets-by-project.md)
+
+## OpenAPI Specification
+
+The raw OpenAPI 3.1 specification for this API is available at:
+- [OpenAPI JSON](https://tc.docs.syndicate.io/openapi.json)
+- [OpenAPI YAML](https://tc.docs.syndicate.io/openapi.yaml)

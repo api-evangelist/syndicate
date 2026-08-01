@@ -1,8 +1,29 @@
 aid: syndicate
 name: Syndicate
-description: Syndicate is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Syndicate is a web3 Transaction Cloud that abstracts blockchain transaction
+  infrastructure for developers. Its REST APIs let teams broadcast transactions
+  across EVM-compatible chains without managing private keys, nonces, or gas —
+  with wallets and private keys secured inside HSM enclaves, guaranteed
+  idempotency, managed gas, EIP-191 personal signing and EIP-712 typed-data
+  signing and attestations, contract and function-signature authorization, IP
+  allowlisting, and reliability-focused signed webhooks for real-time
+  transaction status updates. Syndicate is backed by a16z crypto and ships an
+  official Node.js SDK and a hosted MCP server for AI agents.
 url: https://raw.githubusercontent.com/api-evangelist/syndicate/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/76978866?s=200&v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +32,134 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1
 tags:
-- Company
-apis: []
+- Blockchain
+- Web3
+- Ethereum
+- Transactions
+- Wallets
+- EVM
+- Infrastructure
+- Signing
+- Webhooks
+- Cryptography
+apis:
+- aid: syndicate:syndicate-api-key-manager-admin-api
+  name: Syndicate api-key-manager > admin API
+  description: >-
+    The api-key-manager > admin API from Syndicate — 11 operation(s) for api-key-manager > admin.
+  humanURL: https://tc.docs.syndicate.io/infrastructure/overview
+  baseURL: https://api.syndicate.io
+  tags:
+  - api-key-manager > admin
+  properties:
+  - type: OpenAPI
+    url: openapi/syndicate-api-key-manager-admin-api-openapi.yml
+  - type: Documentation
+    url: https://tc.docs.syndicate.io/infrastructure/overview
+- aid: syndicate:syndicate-call-api
+  name: Syndicate call API
+  description: The call API from Syndicate — 1 operation(s) for call.
+  humanURL: https://tc.docs.syndicate.io/infrastructure/overview
+  baseURL: https://api.syndicate.io
+  tags:
+  - call
+  properties:
+  - type: OpenAPI
+    url: openapi/syndicate-call-api-openapi.yml
+  - type: Documentation
+    url: https://tc.docs.syndicate.io/infrastructure/overview
+- aid: syndicate:syndicate-transact-api
+  name: Syndicate transact API
+  description: The transact API from Syndicate — 1 operation(s) for transact.
+  humanURL: https://tc.docs.syndicate.io/infrastructure/overview
+  baseURL: https://api.syndicate.io
+  tags:
+  - transact
+  properties:
+  - type: OpenAPI
+    url: openapi/syndicate-transact-api-openapi.yml
+  - type: Documentation
+    url: https://tc.docs.syndicate.io/infrastructure/overview
+- aid: syndicate:syndicate-wallet-api
+  name: Syndicate wallet API
+  description: The wallet API from Syndicate — 11 operation(s) for wallet.
+  humanURL: https://tc.docs.syndicate.io/infrastructure/overview
+  baseURL: https://api.syndicate.io
+  tags:
+  - wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/syndicate-wallet-api-openapi.yml
+  - type: Documentation
+    url: https://tc.docs.syndicate.io/infrastructure/overview
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/syndicate-domain-security.yml
+- type: DeveloperPortal
+  url: https://docs.syndicate.io
+- type: Documentation
+  url: https://tc.docs.syndicate.io
+- type: APIReference
+  url: https://tc.docs.syndicate.io/api/transactions/send-transaction
+- type: GettingStarted
+  url: https://tc.docs.syndicate.io/get-started/quickstart
+- type: Quickstart
+  url: https://tc.docs.syndicate.io/get-started/quickstart
+- type: Blog
+  url: https://syndicate.io/blog
+- type: GitHubOrganization
+  url: https://github.com/SyndicateProtocol
+- type: SignUp
+  url: https://dashboard.syndicate.io/signup
+- type: Login
+  url: https://dashboard.syndicate.io
+- type: TermsOfService
+  url: https://syndicate.io/terms
+- type: PrivacyPolicy
+  url: https://syndicate.io/privacy-policy
+- type: Website
+  url: https://syndicate.io
+- type: AgenticAccess
+  url: agentic-access/syndicate-agentic-access.yml
+- type: Authentication
+  url: authentication/syndicate-authentication.yml
+- type: Packages
+  url: packages/syndicate-packages.yml
+- type: SDKs
+  url: packages/syndicate-packages.yml
+- type: MCPServer
+  url: mcp/syndicate-mcp.yml
+- type: LLMsTxt
+  url: llms/syndicate-llms.txt
+- type: WellKnown
+  url: well-known/syndicate-well-known.yml
+- type: Conformance
+  url: conformance/syndicate-conformance.yml
+- type: ErrorCatalog
+  url: errors/syndicate-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/syndicate-lifecycle.yml
+- type: Conventions
+  url: conventions/syndicate-conventions.yml
+- type: Idempotency
+  url: conventions/syndicate-conventions.yml
+- type: Sandbox
+  url: sandbox/syndicate-sandbox.yml
+- type: DataModel
+  url: data-model/syndicate-data-model.yml
+- type: Webhooks
+  url: asyncapi/syndicate-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
