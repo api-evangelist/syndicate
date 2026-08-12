@@ -105,6 +105,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/syndicate-transaction-cloud-overlay.yaml
 - type: DomainSecurity
   url: security/syndicate-domain-security.yml
 - type: DeveloperPortal
