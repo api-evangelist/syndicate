@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api-key-manager > admin call API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "call",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Call View Function",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/transact/call",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read data from a view function on a smart contract"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

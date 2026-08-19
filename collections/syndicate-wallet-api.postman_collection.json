@@ -1,0 +1,1961 @@
+{
+  "item": [
+    {
+      "id": "0ff18295-b9bc-458c-a2ee-b3d1738a0622",
+      "name": "wallet",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fcbbcdd5-ae49-46c3-a00d-76f41f400ec9",
+          "name": "Personal Sign",
+          "request": {
+            "name": "Personal Sign",
+            "description": {
+              "content": "Sign EIP191 compliant message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "personalSign"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cae5125a-7a3f-48a9-9d62-4c71bc3c8914",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": {},\n  \"signature\": \"string\",\n  \"signerAddress\": \"string\",\n  \"signatureId\": \"63ee7f34-dbc8-7537-e23e-d49c49356cc1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "623c4ca3-5cff-4630-808b-13be471891e6",
+              "name": "Error response with status 400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6f30e32-390e-471e-ace8-678ea8a256a3",
+              "name": "Error response with status 500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSign"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8684f6fe-d567-4183-830d-5913d050b255",
+          "name": "Sign Typed Data",
+          "request": {
+            "name": "Sign Typed Data",
+            "description": {
+              "content": "Sign EIP712 compliant typed data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "signTypedData"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {}\n  },\n  \"domain\": {\n    \"chainId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"verifyingContract\": \"<string>\",\n    \"salt\": \"<string>\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79837e86-33ba-4937-ace7-6c1ef55f93d5",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 2945,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": {},\n  \"signature\": \"string\",\n  \"signerAddress\": \"string\",\n  \"signatureId\": \"63ee7f34-dbc8-7537-e23e-d49c49356cc1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fb687f7-80fb-4fdc-aee2-aa0c665dbc45",
+              "name": "Error response with status 400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 2945,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "472fc2d2-0fe3-41db-b500-380822bf691a",
+              "name": "Error response with status 500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedData"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 2945,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58e19dfa-a5fa-4117-9c4d-7072be694e39",
+          "name": "Sign Typed Data With Lookup",
+          "request": {
+            "name": "Sign Typed Data With Lookup",
+            "description": {
+              "content": "Sign EIP712 compliant typed data after asserting all lookups are valid. Lookups can be view or pure functions on smart contracts. Responses are compared to specified values in the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "signTypedDataWithLookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"domain\": {\n    \"chainId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"verifyingContract\": \"<string>\",\n    \"salt\": \"<string>\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"lookups\": [\n    {\n      \"value\": \"<string>\",\n      \"operation\": \"<string>\",\n      \"type\": \"<string>\",\n      \"contractAddress\": \"<string>\",\n      \"functionSignature\": \"<string>\",\n      \"chainId\": \"<integer>\",\n      \"args\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    },\n    {\n      \"value\": \"<string>\",\n      \"operation\": \"<string>\",\n      \"type\": \"<string>\",\n      \"contractAddress\": \"<string>\",\n      \"functionSignature\": \"<string>\",\n      \"chainId\": \"<integer>\",\n      \"args\": {\n        \"key_0\": {}\n      }\n    }\n  ],\n  \"signatureId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22a7195b-3adc-46b3-ad4c-54775f36f813",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedDataWithLookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 6277,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"lookups\": [\n    {\n      \"value\": \"string\",\n      \"operation\": \"gt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 8328,\n      \"args\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"value\": \"string\",\n      \"operation\": \"lt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 7213,\n      \"args\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ],\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": {},\n  \"signature\": \"string\",\n  \"signerAddress\": \"string\",\n  \"signatureId\": \"63ee7f34-dbc8-7537-e23e-d49c49356cc1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0dbbf400-958b-4061-8b82-4f6133dc2aa3",
+              "name": "Error response with status 400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedDataWithLookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 6277,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"lookups\": [\n    {\n      \"value\": \"string\",\n      \"operation\": \"gt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 8328,\n      \"args\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"value\": \"string\",\n      \"operation\": \"lt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 7213,\n      \"args\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ],\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a51e2233-aacc-467f-b91b-2e3f56ca99fe",
+              "name": "Error response with status 500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signTypedDataWithLookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"signerAddress\": \"<string>\",\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"domain\": {\n    \"chainId\": 6277,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"primaryType\": \"<string>\",\n  \"lookups\": [\n    {\n      \"value\": \"string\",\n      \"operation\": \"gt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 8328,\n      \"args\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"value\": \"string\",\n      \"operation\": \"lt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 7213,\n      \"args\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      }\n    }\n  ],\n  \"signatureId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2854b872-77e5-42b4-a780-e7bcca133f30",
+          "name": "Get Project Personal Signatures",
+          "request": {
+            "name": "Get Project Personal Signatures",
+            "description": {
+              "content": "Get EIP191 personal signatures for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "personalSignatures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba563fc8-fdac-4787-8a92-4437b0f779fe",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSignatures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signatureId\": \"47600095-765d-3880-d889-bcaefa5286b5\",\n    \"projectId\": \"17698506-2d9a-6848-a035-049e1aadd842\",\n    \"walletAddress\": \"string\",\n    \"chainId\": 4440,\n    \"message\": \"string\",\n    \"signature\": \"string\",\n    \"createdAt\": \"2013-03-15T17:21:24.401Z\"\n  },\n  {\n    \"signatureId\": \"cbf5587a-869b-9580-a03c-3dc1c56dedcb\",\n    \"projectId\": \"3ec0bba9-86ee-2780-66f3-7bcf92772d2c\",\n    \"walletAddress\": \"string\",\n    \"chainId\": 723,\n    \"message\": \"string\",\n    \"signature\": \"string\",\n    \"createdAt\": \"2012-04-04T18:37:35.217Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a41875fe-737c-432b-966b-b74e47160491",
+          "name": "Get Personal Signature",
+          "request": {
+            "name": "Get Personal Signature",
+            "description": {
+              "content": "Get a personal signature by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "personalSignature",
+                ":signatureId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "signatureId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78984637-7976-4f43-a35f-76de83a412a6",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSignature",
+                    ":signatureId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "signatureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"signatureId\": \"4903af4a-2ff8-692a-ff0a-3f6373c16ea5\",\n  \"projectId\": \"711b3f24-5c04-0343-1a4a-c89e0606147d\",\n  \"walletAddress\": \"string\",\n  \"chainId\": 1356,\n  \"message\": \"string\",\n  \"signature\": \"string\",\n  \"createdAt\": \"1998-09-14T16:10:18.273Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc7bf71e-2d23-4962-b608-7c9bdf9c403c",
+              "name": "Error response with status 400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "personalSignature",
+                    ":signatureId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "signatureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a518b38-d898-4c4d-b815-ac06432ec336",
+          "name": "Get Project Signatures",
+          "request": {
+            "name": "Get Project Signatures",
+            "description": {
+              "content": "Get EIP712 typed data signatures for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "signatures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47881b48-39c8-40d3-9860-7c296fbf0d0e",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signatures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"signatureId\": \"2e9a3874-ff3b-d479-f317-624091075eb2\",\n    \"projectId\": \"c4e20ba2-7279-c65e-1142-7cb3e5349cad\",\n    \"walletAddress\": \"string\",\n    \"domain\": {\n      \"chainId\": 2740,\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"verifyingContract\": \"string\",\n      \"salt\": \"string\"\n    },\n    \"types\": {\n      \"key_0\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    },\n    \"message\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"primaryType\": \"string\",\n    \"signature\": \"string\",\n    \"createdAt\": \"1978-05-28T04:50:12.428Z\",\n    \"lookups\": [\n      {\n        \"value\": \"string\",\n        \"operation\": \"gt\",\n        \"type\": \"contract\",\n        \"contractAddress\": \"string\",\n        \"functionSignature\": \"string\",\n        \"chainId\": 5051,\n        \"args\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      {\n        \"value\": \"string\",\n        \"operation\": \"eq\",\n        \"type\": \"contract\",\n        \"contractAddress\": \"string\",\n        \"functionSignature\": \"string\",\n        \"chainId\": 259,\n        \"args\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      }\n    ]\n  },\n  {\n    \"signatureId\": \"936eb9b0-fbac-60d4-ccf2-48ee067391b1\",\n    \"projectId\": \"688fef24-7472-eef6-2fb6-32caefd396e8\",\n    \"walletAddress\": \"string\",\n    \"domain\": {\n      \"chainId\": 1964,\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"verifyingContract\": \"string\",\n      \"salt\": \"string\"\n    },\n    \"types\": {\n      \"key_0\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"key_1\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"string\"\n        }\n      ]\n    },\n    \"message\": {\n      \"key_0\": {}\n    },\n    \"primaryType\": \"string\",\n    \"signature\": \"string\",\n    \"createdAt\": \"1988-11-24T10:23:05.147Z\",\n    \"lookups\": [\n      {\n        \"value\": \"string\",\n        \"operation\": \"eq\",\n        \"type\": \"contract\",\n        \"contractAddress\": \"string\",\n        \"functionSignature\": \"string\",\n        \"chainId\": 9751,\n        \"args\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      {\n        \"value\": \"string\",\n        \"operation\": \"eq\",\n        \"type\": \"contract\",\n        \"contractAddress\": \"string\",\n        \"functionSignature\": \"string\",\n        \"chainId\": 1809,\n        \"args\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "483e10a1-6dd7-4c56-9861-e12c4548d012",
+          "name": "Get Signature",
+          "request": {
+            "name": "Get Signature",
+            "description": {
+              "content": "Get a typed data signature by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "signature",
+                ":signatureId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "signatureId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b1c2540-4adc-4ff6-8691-6c03a9431587",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signature",
+                    ":signatureId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "signatureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"signatureId\": \"beb60b3b-38cb-7d0e-5b5f-d88926d83d19\",\n  \"projectId\": \"81515c09-6733-77fb-bd02-d38730e01166\",\n  \"walletAddress\": \"string\",\n  \"domain\": {\n    \"chainId\": 5712,\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"verifyingContract\": \"string\",\n    \"salt\": \"string\"\n  },\n  \"types\": {\n    \"key_0\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"key_1\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"key_2\": [\n      {\n        \"name\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  \"message\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"primaryType\": \"string\",\n  \"signature\": \"string\",\n  \"createdAt\": \"2018-04-21T12:38:03.631Z\",\n  \"lookups\": [\n    {\n      \"value\": \"string\",\n      \"operation\": \"eq\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 7852,\n      \"args\": {\n        \"key_0\": {}\n      }\n    },\n    {\n      \"value\": \"string\",\n      \"operation\": \"gt\",\n      \"type\": \"contract\",\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"chainId\": 5607,\n      \"args\": {\n        \"key_0\": {}\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73624e20-3177-4436-8f09-1a32192cd2df",
+              "name": "Error response with status 400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "signature",
+                    ":signatureId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "signatureId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "618312df-9511-4601-9874-5a027aea0906",
+          "name": "Get Transaction Request",
+          "request": {
+            "name": "Get Transaction Request",
+            "description": {
+              "content": "Get a transaction request by id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "request",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "transactionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "daab3f1e-f1b3-4a28-99de-b73129a0b9ae",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "request",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactionId\": \"string\",\n  \"chainId\": 3030,\n  \"projectId\": \"string\",\n  \"invalid\": true,\n  \"contractAddress\": \"string\",\n  \"functionSignature\": \"string\",\n  \"data\": \"string\",\n  \"value\": \"string\",\n  \"createdAt\": \"1994-05-14T16:30:07.497Z\",\n  \"updatedAt\": \"1989-06-19T16:04:40.020Z\",\n  \"decodedData\": {\n    \"key_0\": {}\n  },\n  \"transactionAttempts\": [\n    {\n      \"transactionId\": \"string\",\n      \"hash\": \"string\",\n      \"chainId\": 8930,\n      \"version\": 3512,\n      \"status\": \"SUBMITTED\",\n      \"block\": 3334,\n      \"signedTxn\": \"string\",\n      \"walletAddress\": \"string\",\n      \"reverted\": true,\n      \"nonce\": 1279,\n      \"createdAt\": \"1968-06-20T12:14:37.146Z\",\n      \"updatedAt\": \"1977-12-15T06:05:04.374Z\",\n      \"blockCreatedAt\": \"1963-10-04T02:05:53.867Z\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"hash\": \"string\",\n      \"chainId\": 5457,\n      \"version\": 7782,\n      \"status\": \"PROCESSED\",\n      \"block\": 2458,\n      \"signedTxn\": \"string\",\n      \"walletAddress\": \"string\",\n      \"reverted\": false,\n      \"nonce\": 5233,\n      \"createdAt\": \"1956-06-03T22:32:37.403Z\",\n      \"updatedAt\": \"1959-11-16T11:57:25.573Z\",\n      \"blockCreatedAt\": \"2023-05-12T16:44:37.963Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b636ab1f-563a-4e1f-ad36-7f9cfe0336dd",
+              "name": "Error response with status 404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "request",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "transactionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fff38786-1109-4daa-a7a3-8b0bee75b0c9",
+          "name": "Get Transaction Requests By Project",
+          "request": {
+            "name": "Get Transaction Requests By Project",
+            "description": {
+              "content": "Gets a list of transaction requests for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Optional search parameter will filter by function signature, contract address, or transaction id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87aa85eb-0c5c-4ac8-beb3-e79c19468113",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactionRequests\": [\n    {\n      \"transactionId\": \"string\",\n      \"chainId\": 9791,\n      \"projectId\": \"string\",\n      \"invalid\": true,\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"data\": \"string\",\n      \"value\": \"string\",\n      \"createdAt\": \"2007-01-27T04:37:24.642Z\",\n      \"updatedAt\": \"1954-04-22T20:18:50.762Z\",\n      \"decodedData\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"transactionAttempts\": [\n        {\n          \"transactionId\": \"string\",\n          \"hash\": \"string\",\n          \"chainId\": 471,\n          \"version\": 9041,\n          \"status\": \"PAUSED\",\n          \"block\": 7515,\n          \"signedTxn\": \"string\",\n          \"walletAddress\": \"string\",\n          \"reverted\": false,\n          \"nonce\": 1564,\n          \"createdAt\": \"1976-09-23T07:49:42.101Z\",\n          \"updatedAt\": \"1998-08-01T22:05:47.079Z\",\n          \"blockCreatedAt\": \"2009-01-22T19:15:11.573Z\"\n        },\n        {\n          \"transactionId\": \"string\",\n          \"hash\": \"string\",\n          \"chainId\": 9903,\n          \"version\": 4223,\n          \"status\": \"ABANDONED\",\n          \"block\": 3959,\n          \"signedTxn\": \"string\",\n          \"walletAddress\": \"string\",\n          \"reverted\": true,\n          \"nonce\": 3602,\n          \"createdAt\": \"2001-03-21T08:30:54.210Z\",\n          \"updatedAt\": \"1984-09-30T07:29:13.761Z\",\n          \"blockCreatedAt\": \"1971-09-18T14:57:21.708Z\"\n        }\n      ]\n    },\n    {\n      \"transactionId\": \"string\",\n      \"chainId\": 9404,\n      \"projectId\": \"string\",\n      \"invalid\": false,\n      \"contractAddress\": \"string\",\n      \"functionSignature\": \"string\",\n      \"data\": \"string\",\n      \"value\": \"string\",\n      \"createdAt\": \"1948-09-09T11:39:11.563Z\",\n      \"updatedAt\": \"1973-07-13T03:31:02.704Z\",\n      \"decodedData\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"transactionAttempts\": [\n        {\n          \"transactionId\": \"string\",\n          \"hash\": \"string\",\n          \"chainId\": 5063,\n          \"version\": 995,\n          \"status\": \"PENDING\",\n          \"block\": 5804,\n          \"signedTxn\": \"string\",\n          \"walletAddress\": \"string\",\n          \"reverted\": false,\n          \"nonce\": 5323,\n          \"createdAt\": \"1984-08-04T11:21:15.797Z\",\n          \"updatedAt\": \"1949-03-09T10:49:52.694Z\",\n          \"blockCreatedAt\": \"2004-03-25T18:54:44.760Z\"\n        },\n        {\n          \"transactionId\": \"string\",\n          \"hash\": \"string\",\n          \"chainId\": 3605,\n          \"version\": 1406,\n          \"status\": \"ABANDONED\",\n          \"block\": 8009,\n          \"signedTxn\": \"string\",\n          \"walletAddress\": \"string\",\n          \"reverted\": false,\n          \"nonce\": 5814,\n          \"createdAt\": \"2018-11-04T14:26:10.366Z\",\n          \"updatedAt\": \"2001-08-30T21:30:17.624Z\",\n          \"blockCreatedAt\": \"1954-12-04T03:28:15.482Z\"\n        }\n      ]\n    }\n  ],\n  \"total\": 8056\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d27204b4-9ed2-4f7b-af6d-84d455307846",
+              "name": "Error response with status 404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f476fc11-2149-4c3b-80fd-9ae175f840eb",
+          "name": "Get Transactions By Project",
+          "request": {
+            "name": "Get Transactions By Project",
+            "description": {
+              "content": "Gets a list of transaction attempts for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Optional search parameter will filter by transaction hash, wallet address, or transaction id"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reverted",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac62797e-ca23-44a5-9994-b634b2f41c37",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "reverted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "CONFIRMED"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactionAttempts\": [\n    {\n      \"transactionId\": \"string\",\n      \"hash\": \"string\",\n      \"chainId\": 9505,\n      \"version\": 5668,\n      \"status\": \"CONFIRMED\",\n      \"block\": 5354,\n      \"signedTxn\": \"string\",\n      \"walletAddress\": \"string\",\n      \"reverted\": true,\n      \"nonce\": 9392,\n      \"createdAt\": \"1969-11-02T11:25:13.171Z\",\n      \"updatedAt\": \"1990-04-16T00:50:49.790Z\",\n      \"blockCreatedAt\": \"2022-03-23T08:49:10.289Z\"\n    },\n    {\n      \"transactionId\": \"string\",\n      \"hash\": \"string\",\n      \"chainId\": 3837,\n      \"version\": 9287,\n      \"status\": \"CONFIRMED\",\n      \"block\": 4537,\n      \"signedTxn\": \"string\",\n      \"walletAddress\": \"string\",\n      \"reverted\": true,\n      \"nonce\": 2549,\n      \"createdAt\": \"1977-03-23T03:27:02.150Z\",\n      \"updatedAt\": \"1992-01-05T16:44:09.396Z\",\n      \"blockCreatedAt\": \"1981-02-20T01:02:35.934Z\"\n    }\n  ],\n  \"total\": 3050\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f5a7d22-50d9-45f4-98f6-d2efcd128015",
+          "name": "Get Wallets By Project",
+          "request": {
+            "name": "Get Wallets By Project",
+            "description": {
+              "content": "Gets a list of wallets for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "project",
+                ":projectId",
+                "wallets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "withData",
+                  "value": "<boolean>",
+                  "description": "Optional parameter to return this address's balance and total count of confirmed transactions"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c29cd2b0-7768-426e-ae41-417720f08b8d",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "wallets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"walletId\": \"0786c293-5112-17da-379d-846e76a99fb5\",\n    \"walletAddress\": \"string\",\n    \"chainId\": 2735,\n    \"nonce\": 5531,\n    \"status\": \"INACTIVE\",\n    \"projectId\": \"1221c118-a062-3ad5-61ff-4c0db313550e\",\n    \"createdAt\": \"2024-02-16T11:34:22.590Z\",\n    \"updatedAt\": \"2001-03-05T23:37:03.680Z\",\n    \"walletType\": \"SIGNING\",\n    \"txCount\": 2270,\n    \"balance\": \"string\"\n  },\n  {\n    \"walletId\": \"830eb161-0cb8-8ac4-4487-6843a38c00e3\",\n    \"walletAddress\": \"string\",\n    \"chainId\": 7072,\n    \"nonce\": 1407,\n    \"status\": \"DESTROYED\",\n    \"projectId\": \"f9c1dd9b-a3ba-546f-fe00-d0e54c8fa076\",\n    \"createdAt\": \"1948-04-06T01:45:48.573Z\",\n    \"updatedAt\": \"1958-01-26T10:43:13.266Z\",\n    \"walletType\": \"SIGNING\",\n    \"txCount\": 3734,\n    \"balance\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70254794-8fb0-4873-b5a2-e8ae3acbbf31",
+              "name": "Error response with status 500",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "project",
+                    ":projectId",
+                    "wallets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "withData",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.syndicate.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8a10e863-460b-4cef-9aea-66e4e2652704",
+    "name": "api-key-manager > admin wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

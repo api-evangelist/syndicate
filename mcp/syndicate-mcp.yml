@@ -6,14 +6,16 @@ server:
   name: syndicate-docs
   transport: http
   url: https://tc.docs.syndicate.io/_mcp/server
-  description: >-
-    Official hosted MCP server published by Syndicate for AI client integration
-    (Claude Code, Cursor, etc.). Serves the Syndicate documentation surface —
-    including the Transaction Cloud API reference — to MCP-capable agents.
+  description: Official hosted MCP server published by Syndicate for AI client integration (Claude Code,
+    Cursor, etc.). Serves the Syndicate documentation surface — including the Transaction Cloud API reference
+    — to MCP-capable agents.
   scope: documentation
-notes: >-
-  The published server is a documentation MCP server (returned HTTP 200 at the
-  advertised endpoint). It exposes the docs/API-reference corpus to agents; it
-  is not a per-operation execution server for the REST API. A candidate
-  execution tool list could be derived from the 24 OpenAPI operations if an
-  action server is desired.
+notes: The published server is a documentation MCP server (returned HTTP 200 at the advertised endpoint).
+  It exposes the docs/API-reference corpus to agents; it is not a per-operation execution server for the
+  REST API. A candidate execution tool list could be derived from the 24 OpenAPI operations if an action
+  server is desired.
+deployment:
+  mode: remote
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census

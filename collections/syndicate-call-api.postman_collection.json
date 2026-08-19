@@ -1,0 +1,131 @@
+{
+  "item": [
+    {
+      "id": "5c68aeaf-6c80-4a38-b244-48453b1f1c1c",
+      "name": "call",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64dcc4f5-e51e-4b33-b734-7fed8e880780",
+          "name": "Call View Function",
+          "request": {
+            "name": "Call View Function",
+            "description": {
+              "content": "Read data from a view function on a smart contract",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transact",
+                "call"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": \"<long>\",\n  \"functionSignature\": \"<string>\",\n  \"contractAddress\": \"<string>\",\n  \"args\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b643cea3-c4b8-4367-bf0d-7d67155a2fde",
+              "name": "Response with status 200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transact",
+                    "call"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer authentication",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chainId\": \"<long>\",\n  \"functionSignature\": \"<string>\",\n  \"contractAddress\": \"<string>\",\n  \"args\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.syndicate.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e361f431-56ad-4827-a36c-507c2b7e72d4",
+    "name": "api-key-manager > admin call API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

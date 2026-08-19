@@ -1,0 +1,357 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api-key-manager > admin wallet API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "wallet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Personal Sign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/personalSign",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign EIP191 compliant message"
+        },
+        {
+          "info": {
+            "name": "Sign Typed Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/signTypedData",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign EIP712 compliant typed data"
+        },
+        {
+          "info": {
+            "name": "Sign Typed Data With Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/signTypedDataWithLookup",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign EIP712 compliant typed data after asserting all lookups are valid. Lookups can be view or pure functions on smart contracts. Responses are compared to specified values in the request."
+        },
+        {
+          "info": {
+            "name": "Get Project Personal Signatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/personalSignatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get EIP191 personal signatures for a project"
+        },
+        {
+          "info": {
+            "name": "Get Personal Signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/personalSignature/:signatureId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "signatureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a personal signature by ID"
+        },
+        {
+          "info": {
+            "name": "Get Project Signatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/signatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get EIP712 typed data signatures for a project"
+        },
+        {
+          "info": {
+            "name": "Get Signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/signature/:signatureId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "signatureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a typed data signature by ID"
+        },
+        {
+          "info": {
+            "name": "Get Transaction Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/request/:transactionId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a transaction request by id"
+        },
+        {
+          "info": {
+            "name": "Get Transaction Requests By Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/requests",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Optional search parameter will filter by function signature, contract address, or transaction id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a list of transaction requests for a project"
+        },
+        {
+          "info": {
+            "name": "Get Transactions By Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/transactions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Optional search parameter will filter by transaction hash, wallet address, or transaction id"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "reverted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a list of transaction attempts for a project"
+        },
+        {
+          "info": {
+            "name": "Get Wallets By Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/wallet/project/:projectId/wallets",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "withData",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to return this address's balance and total count of confirmed transactions"
+              }
+            ]
+          },
+          "docs": "Gets a list of wallets for a project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

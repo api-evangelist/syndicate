@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api-key-manager > admin transact API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transact",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/transact/sendTransaction",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send transaction to blockchain"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,299 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api-key-manager > admin API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "api-key-manager > admin",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/project",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project. Only available with environment wide API keys."
+        },
+        {
+          "info": {
+            "name": "Update Project Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/project/:projectId/updateName",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a project name"
+        },
+        {
+          "info": {
+            "name": "Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/admin/project/:projectId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific project"
+        },
+        {
+          "info": {
+            "name": "Authorize Contract With Function Signatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/contract/authorizeWithFunctionSignatures",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authorize a contract with function signatures"
+        },
+        {
+          "info": {
+            "name": "Authorize Contract With JSONABI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/contract/authorizeWithJSONABI",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authorize a contract and its corresponding function signatures using the JSON ABI format."
+        },
+        {
+          "info": {
+            "name": "Claim Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/project/:projectId/contract/:chainId/:contractAddress/claim",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "chainId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contractAddress",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Claim a contract. This contract must be authorized in your project first. See [Authorize Contract with Function Signatures](https://docs.syndicate.io/open-api/admin/authorize-with-fn-sigs) to authorize a contract in your project."
+        },
+        {
+          "info": {
+            "name": "Delete Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.syndicate.io/admin/project/:projectId/contract/:contractId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a contract"
+        },
+        {
+          "info": {
+            "name": "Delete Function Signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.syndicate.io/admin/project/:projectId/functionSignature/:functionSignatureId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionSignatureId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a function signature"
+        },
+        {
+          "info": {
+            "name": "Create Allowed IP Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.syndicate.io/admin/allowedIP",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an IP range allowlist"
+        },
+        {
+          "info": {
+            "name": "Get Project Allowed IP Ranges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.syndicate.io/admin/project/:projectId/allowedIPRanges",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get allowed IP ranges by project ID"
+        },
+        {
+          "info": {
+            "name": "Delete Allowed IP Range",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.syndicate.io/admin/project/:projectId/allowedIP/:IPId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "IPId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an IP range allowlist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
