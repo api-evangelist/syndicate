@@ -42,6 +42,17 @@ tags:
 - Blockchain
 - Web3
 - Ethereum
+- Transaction
+- Wallets
+- EVM
+- Infrastructure
+- Signing
+- Webhook
+- Cryptography
+tags_raw:
+- Blockchain
+- Web3
+- Ethereum
 - Transactions
 - Wallets
 - EVM
@@ -69,6 +80,8 @@ apis:
   humanURL: https://tc.docs.syndicate.io/infrastructure/overview
   baseURL: https://api.syndicate.io
   tags:
+  - Call
+  tags_raw:
   - call
   properties:
   - type: OpenAPI
@@ -93,6 +106,8 @@ apis:
   humanURL: https://tc.docs.syndicate.io/infrastructure/overview
   baseURL: https://api.syndicate.io
   tags:
+  - Wallets
+  tags_raw:
   - wallet
   properties:
   - type: OpenAPI
