@@ -11,6 +11,18 @@ description: >-
   transaction status updates. Syndicate is backed by a16z crypto and ships an
   official Node.js SDK and a hosted MCP server for AI agents.
 url: https://raw.githubusercontent.com/api-evangelist/syndicate/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
