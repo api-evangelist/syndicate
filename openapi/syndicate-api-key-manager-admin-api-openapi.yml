@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: api-key-manager > admin API
   version: 1.0.0
@@ -28,7 +28,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Project'
         '400':
           description: Error response with status 400
         '403':
@@ -41,7 +41,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_api-key-manager/admin:CreateProjectRequest'
+              $ref: '#/components/schemas/type_api-key-manager_admin_CreateProjectRequest'
   /admin/project/{projectId}/updateName:
     post:
       operationId: update-project-name
@@ -68,7 +68,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Project'
         '400':
           description: Error response with status 400
         '401':
@@ -79,7 +79,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_api-key-manager/admin:UpdateProjectNameRequest'
+              $ref: '#/components/schemas/type_api-key-manager_admin_UpdateProjectNameRequest'
   /admin/project/{projectId}:
     get:
       operationId: get-project
@@ -106,7 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Project'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Project'
         '401':
           description: Error response with status 401
   /admin/contract/authorizeWithFunctionSignatures:
@@ -129,7 +129,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
         '400':
           description: Error response with status 400
         '404':
@@ -142,7 +142,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_api-key-manager/admin:AuthorizeContractWithFunctionSignaturesRequest'
+              $ref: '#/components/schemas/type_api-key-manager_admin_AuthorizeContractWithFunctionSignaturesRequest'
   /admin/contract/authorizeWithJSONABI:
     post:
       operationId: authorize-contract-with-jsonabi
@@ -163,7 +163,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
         '400':
           description: Error response with status 400
         '404':
@@ -176,12 +176,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_api-key-manager/admin:AuthorizeContractWithJSONABIRequest'
+              $ref: '#/components/schemas/type_api-key-manager_admin_AuthorizeContractWithJSONABIRequest'
   /admin/project/{projectId}/contract/{chainId}/{contractAddress}/claim:
     post:
       operationId: claim-contract
       summary: Claim Contract
-      description: Claim a contract. This contract must be authorized in your project first. See [Authorize Contract with Function Signatures](https://docs.syndicate.io/open-api/admin/authorize-with-fn-sigs) to authorize a contract in your project.
+      description: Claim a contract. This contract must be authorized in your project first. See Authorize Contract with Function Signatures to authorize a contract in your project.
       tags:
       - api-key-manager > admin
       parameters:
@@ -213,7 +213,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:Contract'
+                $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
         '400':
           description: Error response with status 400
         '404':
@@ -310,7 +310,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_api-key-manager/admin:AllowlistIpRange'
+                $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
         '400':
           description: Error response with status 400
         '401':
@@ -323,7 +323,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_api-key-manager/admin:CreateAllowedIPRangeRequest'
+              $ref: '#/components/schemas/type_api-key-manager_admin_CreateAllowedIPRangeRequest'
   /admin/project/{projectId}/allowedIPRanges:
     get:
       operationId: get-project-allowed-ip-ranges
@@ -352,7 +352,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/type_api-key-manager/admin:AllowlistIpRange'
+                  $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
         '401':
           description: Error response with status 401
   /admin/project/{projectId}/allowedIP/{IPId}:
@@ -391,6 +391,235 @@ paths:
         '500':
           description: Error response with status 500
 components:
+  schemas:
+    type_api-key-manager_admin_Project:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        organizationId:
+          type: string
+          format: uuid
+        contracts:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
+        allowlistIpRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
+      required:
+      - id
+      - createdAt
+      - name
+      - environment
+      - organizationId
+      - contracts
+      - allowlistIpRanges
+      title: Project
+    type_api-key-manager_admin_FunctionSignature:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        signature:
+          type: string
+        functionAbi:
+          description: JSON ABI of the function signature. Null if function signature is unable to be parsed.
+        hashedSignature:
+          type: string
+        contractId:
+          type: string
+          format: uuid
+        payable:
+          type: boolean
+      required:
+      - id
+      - createdAt
+      - signature
+      - hashedSignature
+      - contractId
+      - payable
+      title: FunctionSignature
+    type_api-key-manager_admin_CreateAllowedIPRangeRequest:
+      type: object
+      properties:
+        projectId:
+          type: string
+        ipRange:
+          type: string
+          description: The IP range to allow, specified in CIDR notation.
+        note:
+          type: string
+          description: Must be alphanumeric and may include spaces, . ! ? , ' -
+      required:
+      - projectId
+      - ipRange
+      title: CreateAllowedIPRangeRequest
+    type_api-key-manager_admin_AuthorizeContractWithFunctionSignaturesRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        address:
+          type: string
+        name:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+        expiresAt:
+          type: string
+          format: date-time
+        functionSignatures:
+          type: array
+          items:
+            type: string
+      required:
+      - chainId
+      - address
+      - name
+      - projectId
+      - functionSignatures
+      title: AuthorizeContractWithFunctionSignaturesRequest
+    type_api-key-manager_admin_Contract:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        chainId:
+          type: integer
+        address:
+          type: string
+        name:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+        functionSignatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_FunctionSignature'
+        projectId:
+          type: string
+          format: uuid
+        claimedByOrganizationId:
+          type: string
+          format: uuid
+      required:
+      - id
+      - createdAt
+      - chainId
+      - address
+      - name
+      - functionSignatures
+      - projectId
+      title: Contract
+    type_api-key-manager_admin_CreateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        chainId:
+          type: integer
+        organizationId:
+          type: string
+          format: uuid
+        numWallets:
+          type: integer
+          description: Number of wallets to create for the project. Defaults to 1. Max is 10.
+      required:
+      - name
+      - environment
+      - chainId
+      - organizationId
+      title: CreateProjectRequest
+    type_api-key-manager_admin_AuthorizeContractWithJSONABIRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        address:
+          type: string
+        name:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+        expiresAt:
+          type: string
+          format: date-time
+        abi:
+          type: array
+          items:
+            description: Any type
+      required:
+      - chainId
+      - address
+      - name
+      - projectId
+      - abi
+      title: AuthorizeContractWithJSONABIRequest
+    type_api-key-manager_admin_ProjectEnvironment:
+      type: string
+      enum:
+      - staging
+      - production
+      title: ProjectEnvironment
+    type_api-key-manager_admin_UpdateProjectNameRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      title: UpdateProjectNameRequest
+    type_api-key-manager_admin_AllowlistIpRange:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        ipRange:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+      required:
+      - id
+      - createdAt
+      - ipRange
+      - projectId
+      title: AllowlistIpRange
   securitySchemes:
     default:
       type: http

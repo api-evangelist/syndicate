@@ -1,18 +1,23 @@
 generated: '2026-07-21'
 method: searched
 host: https://api.syndicate.io
-note: >-
-  The API host api.syndicate.io sits behind Cloudflare and returned HTTP 403 for
-  all probed /.well-known/ paths (bot protection), so none could be captured.
-  Absence/blocked is recorded as valid data.
-documents:
-- path: /.well-known/security.txt
-  status: 403
-- path: /.well-known/openid-configuration
-  status: 403
-- path: /.well-known/oauth-authorization-server
-  status: 403
-- path: /.well-known/api-catalog
-  status: 403
-- path: /.well-known/ai-plugin.json
-  status: 403
+note: The API host api.syndicate.io sits behind Cloudflare and returned HTTP 403 for all probed /.well-known/
+  paths (bot protection), so none could be captured. Absence/blocked is recorded as valid data.
+hosts:
+- host: https://api.syndicate.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.

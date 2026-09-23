@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: api-key-manager > admin transact API
+  title: Transact API
   version: 1.0.0
 servers:
 - url: https://api.syndicate.io
@@ -28,52 +28,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_transact:SendTransactionResponse'
+                $ref: '#/components/schemas/type_transact_SendTransactionResponse'
         '400':
           description: Error response with status 400
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_transact:ErrorBody'
+                $ref: '#/components/schemas/type_transact_ErrorBody'
         '409':
           description: Error response with status 409
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_transact:ErrorBody'
+                $ref: '#/components/schemas/type_transact_ErrorBody'
         '422':
           description: Error response with status 422
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/type_transact:ErrorBody'
+                $ref: '#/components/schemas/type_transact_ErrorBody'
         '500':
           description: Error response with status 500
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/type_transact:SendTransactionRequest'
+              $ref: '#/components/schemas/type_transact_SendTransactionRequest'
 components:
   schemas:
-    type_transact:SendTransactionResponse:
-      type: object
-      properties:
-        transactionId:
-          type: string
-          format: uuid
-      required:
-      - transactionId
-      title: SendTransactionResponse
-    type_transact:ErrorBody:
-      type: object
-      properties:
-        message:
-          type: string
-      required:
-      - message
-      title: ErrorBody
-    type_transact:SendTransactionRequest:
+    type_transact_SendTransactionRequest:
       type: object
       properties:
         requestId:
@@ -105,6 +88,23 @@ components:
       - chainId
       - functionSignature
       title: SendTransactionRequest
+    type_transact_SendTransactionResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+          format: uuid
+      required:
+      - transactionId
+      title: SendTransactionResponse
+    type_transact_ErrorBody:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      title: ErrorBody
   securitySchemes:
     default:
       type: http

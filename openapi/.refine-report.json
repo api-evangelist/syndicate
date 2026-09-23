@@ -1,10 +1,7 @@
 {
   "provider": "syndicate",
   "sources": [
-    "syndicate-api-key-manager-admin-api-openapi.yml",
-    "syndicate-call-api-openapi.yml",
-    "syndicate-transact-api-openapi.yml",
-    "syndicate-wallet-api-openapi.yml"
+    "_original/syndicate-transaction-cloud-openapi-original.yml"
   ],
   "outputs": [
     "syndicate-api-key-manager-admin-api-openapi.yml",
@@ -14,16 +11,29 @@
   ],
   "archived": [],
   "errors": [
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AllowlistIpRange",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithFunctionSignaturesRequest",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithJSONABIRequest",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Contract",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateAllowedIPRangeRequest",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateProjectRequest",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Project",
-    "syndicate-api-key-manager-admin-api-openapi.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:UpdateProjectNameRequest"
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AllowlistIpRange",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithFunctionSignaturesRequest",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:AuthorizeContractWithJSONABIRequest",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Contract",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateAllowedIPRangeRequest",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:CreateProjectRequest",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:Project",
+    "syndicate-transaction-cloud-openapi-original.yml: dangling $ref: #/components/schemas/type_api-key-manager/admin:UpdateProjectNameRequest"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "syndicate-transaction-cloud-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0; renamed 35 component key(s) illegal in 3.x (e.g. admin:AllowlistIpRange)",
+    "syndicate-transaction-cloud-openapi-original.yml: declared missing tag: api-key-manager > admin",
+    "syndicate-transaction-cloud-openapi-original.yml: declared missing tag: call",
+    "syndicate-transaction-cloud-openapi-original.yml: declared missing tag: transact",
+    "syndicate-transaction-cloud-openapi-original.yml: declared missing tag: wallet",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "syndicate-api-key-manager-admin-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "syndicate-call-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "syndicate-transact-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "syndicate-wallet-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
