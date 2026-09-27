@@ -89,7 +89,7 @@ apis:
   - type: Documentation
     url: https://tc.docs.syndicate.io/infrastructure/overview
 - aid: syndicate:syndicate-call-api
-  name: Syndicate call API
+  name: Syndicate Call API
   description: The call API from Syndicate — 1 operation(s) for call.
   humanURL: https://tc.docs.syndicate.io/infrastructure/overview
   baseURL: https://api.syndicate.io
@@ -103,7 +103,7 @@ apis:
   - type: Documentation
     url: https://tc.docs.syndicate.io/infrastructure/overview
 - aid: syndicate:syndicate-transact-api
-  name: Syndicate transact API
+  name: Syndicate Transact API
   description: The transact API from Syndicate — 1 operation(s) for transact.
   humanURL: https://tc.docs.syndicate.io/infrastructure/overview
   baseURL: https://api.syndicate.io
@@ -115,7 +115,7 @@ apis:
   - type: Documentation
     url: https://tc.docs.syndicate.io/infrastructure/overview
 - aid: syndicate:syndicate-wallet-api
-  name: Syndicate wallet API
+  name: Syndicate Wallet API
   description: The wallet API from Syndicate — 11 operation(s) for wallet.
   humanURL: https://tc.docs.syndicate.io/infrastructure/overview
   baseURL: https://api.syndicate.io
