@@ -392,165 +392,6 @@ paths:
           description: Error response with status 500
 components:
   schemas:
-    type_api-key-manager_admin_CreateAllowedIPRangeRequest:
-      type: object
-      properties:
-        projectId:
-          type: string
-        ipRange:
-          type: string
-          description: The IP range to allow, specified in CIDR notation.
-        note:
-          type: string
-          description: Must be alphanumeric and may include spaces, . ! ? , ' -
-      required:
-      - projectId
-      - ipRange
-      title: CreateAllowedIPRangeRequest
-    type_api-key-manager_admin_Project:
-      type: object
-      properties:
-        id:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        name:
-          type: string
-        environment:
-          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
-        organizationId:
-          type: string
-          format: uuid
-        contracts:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
-        allowlistIpRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
-      required:
-      - id
-      - createdAt
-      - name
-      - environment
-      - organizationId
-      - contracts
-      - allowlistIpRanges
-      title: Project
-    type_api-key-manager_admin_CreateProjectRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        environment:
-          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
-        chainId:
-          type: integer
-        organizationId:
-          type: string
-          format: uuid
-        numWallets:
-          type: integer
-          description: Number of wallets to create for the project. Defaults to 1. Max is 10.
-      required:
-      - name
-      - environment
-      - chainId
-      - organizationId
-      title: CreateProjectRequest
-    type_api-key-manager_admin_AuthorizeContractWithFunctionSignaturesRequest:
-      type: object
-      properties:
-        chainId:
-          type: integer
-        address:
-          type: string
-        name:
-          type: string
-        projectId:
-          type: string
-          format: uuid
-        expiresAt:
-          type: string
-          format: date-time
-        functionSignatures:
-          type: array
-          items:
-            type: string
-      required:
-      - chainId
-      - address
-      - name
-      - projectId
-      - functionSignatures
-      title: AuthorizeContractWithFunctionSignaturesRequest
-    type_api-key-manager_admin_AuthorizeContractWithJSONABIRequest:
-      type: object
-      properties:
-        chainId:
-          type: integer
-        address:
-          type: string
-        name:
-          type: string
-        projectId:
-          type: string
-          format: uuid
-        expiresAt:
-          type: string
-          format: date-time
-        abi:
-          type: array
-          items:
-            description: Any type
-      required:
-      - chainId
-      - address
-      - name
-      - projectId
-      - abi
-      title: AuthorizeContractWithJSONABIRequest
-    type_api-key-manager_admin_AllowlistIpRange:
-      type: object
-      properties:
-        id:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        ipRange:
-          type: string
-        projectId:
-          type: string
-          format: uuid
-      required:
-      - id
-      - createdAt
-      - ipRange
-      - projectId
-      title: AllowlistIpRange
-    type_api-key-manager_admin_ProjectEnvironment:
-      type: string
-      enum:
-      - staging
-      - production
-      title: ProjectEnvironment
-    type_api-key-manager_admin_UpdateProjectNameRequest:
-      type: object
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      title: UpdateProjectNameRequest
     type_api-key-manager_admin_FunctionSignature:
       type: object
       properties:
@@ -581,6 +422,14 @@ components:
       - contractId
       - payable
       title: FunctionSignature
+    type_api-key-manager_admin_UpdateProjectNameRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      title: UpdateProjectNameRequest
     type_api-key-manager_admin_Contract:
       type: object
       properties:
@@ -620,6 +469,157 @@ components:
       - functionSignatures
       - projectId
       title: Contract
+    type_api-key-manager_admin_Project:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        organizationId:
+          type: string
+          format: uuid
+        contracts:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
+        allowlistIpRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
+      required:
+      - id
+      - createdAt
+      - name
+      - environment
+      - organizationId
+      - contracts
+      - allowlistIpRanges
+      title: Project
+    type_api-key-manager_admin_CreateAllowedIPRangeRequest:
+      type: object
+      properties:
+        projectId:
+          type: string
+        ipRange:
+          type: string
+          description: The IP range to allow, specified in CIDR notation.
+        note:
+          type: string
+          description: Must be alphanumeric and may include spaces, . ! ? , ' -
+      required:
+      - projectId
+      - ipRange
+      title: CreateAllowedIPRangeRequest
+    type_api-key-manager_admin_AuthorizeContractWithJSONABIRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        address:
+          type: string
+        name:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+        expiresAt:
+          type: string
+          format: date-time
+        abi:
+          type: array
+          items:
+            description: Any type
+      required:
+      - chainId
+      - address
+      - name
+      - projectId
+      - abi
+      title: AuthorizeContractWithJSONABIRequest
+    type_api-key-manager_admin_AuthorizeContractWithFunctionSignaturesRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        address:
+          type: string
+        name:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+        expiresAt:
+          type: string
+          format: date-time
+        functionSignatures:
+          type: array
+          items:
+            type: string
+      required:
+      - chainId
+      - address
+      - name
+      - projectId
+      - functionSignatures
+      title: AuthorizeContractWithFunctionSignaturesRequest
+    type_api-key-manager_admin_ProjectEnvironment:
+      type: string
+      enum:
+      - staging
+      - production
+      title: ProjectEnvironment
+    type_api-key-manager_admin_AllowlistIpRange:
+      type: object
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        ipRange:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+      required:
+      - id
+      - createdAt
+      - ipRange
+      - projectId
+      title: AllowlistIpRange
+    type_api-key-manager_admin_CreateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        chainId:
+          type: integer
+        organizationId:
+          type: string
+          format: uuid
+        numWallets:
+          type: integer
+          description: Number of wallets to create for the project. Defaults to 1. Max is 10.
+      required:
+      - name
+      - environment
+      - chainId
+      - organizationId
+      title: CreateProjectRequest
   securitySchemes:
     default:
       type: http

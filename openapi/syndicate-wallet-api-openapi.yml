@@ -450,6 +450,49 @@ paths:
           description: Error response with status 500
 components:
   schemas:
+    type_wallet_SignTypedDataRequest:
+      type: object
+      properties:
+        signatureId:
+          type: string
+          format: uuid
+          description: (Optional) ID of the request. Needs to be a valid UUID. If provided, it will be saved and returned as the signatureId of the response. If not provided, we will generate one for you and return it as the signatureId.
+        signerAddress:
+          type: string
+          description: Address of a project wallet that will be used to sign the 'message'.
+        message:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Data to be signed by the 'signerAddress'. The message's structure must be correctly defined in the 'types' mapping, specified by the 'primaryType'.
+        domain:
+          $ref: '#/components/schemas/type_wallet_EIP712Domain'
+          description: Components of the [domain seperator](https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator). At least one field is required.
+        types:
+          type: object
+          additionalProperties:
+            type: array
+            uniqueItems: true
+            items:
+              $ref: '#/components/schemas/type_wallet_EIP712Types'
+          description: Type definitions of the domain and data you are requesting signature of. At minimum you must define the domain with key 'EIP712Domain' and the type of your message with key specified by 'primaryType'. More information [here](https://eips.ethereum.org/EIPS/eip-712#definition-of-typed-structured-data-%F0%9D%95%8A).
+        primaryType:
+          type: string
+          description: Specifies the name of the key in 'types' that describes the shape of the 'message'.
+      required:
+      - signerAddress
+      - message
+      - domain
+      - types
+      - primaryType
+      title: SignTypedDataRequest
+    type_wallet_LookupOperation:
+      type: string
+      enum:
+      - eq
+      - gt
+      - lt
+      title: LookupOperation
     type_wallet_Signature:
       type: object
       properties:
@@ -497,161 +540,52 @@ components:
       - signature
       - createdAt
       title: Signature
-    type_wallet_ContractLookup:
+    type_wallet_TransactionAttempt:
       type: object
       properties:
-        value:
+        transactionId:
           type: string
-        operation:
-          $ref: '#/components/schemas/type_wallet_LookupOperation'
-        type:
-          $ref: '#/components/schemas/type_wallet_LookupType'
-        contractAddress:
+        hash:
           type: string
-          description: The contract address to send request to
-        functionSignature:
-          type: string
-          description: The human readable signature to call on the contract
-        args:
-          type: object
-          additionalProperties:
-            description: Any type
-          description: (Optional) The function arguments for the read contract call. The keys are the argument names or index from the provided 'functionSignature' and the values are the argument values.
         chainId:
           type: integer
-          description: The chain ID for the network (e.g. 1 for Ethereum Mainnet, 137 for Polygon Mainnet, 80001 for Polygon Mumbai). For a complete list of chain IDs, see [ChainList](https://chainlist.org/?search=&testnets=true).
-      required:
-      - value
-      - operation
-      - type
-      - contractAddress
-      - functionSignature
-      - chainId
-      description: Specify a pure or view function on a contract at 'contractAddress' on a specific 'chainId' to read data from. 'args' are optional, but must be passed if specified in the human readable 'functionSignature'
-      title: ContractLookup
-    type_wallet_SignTypedDataWithLookupRequest:
-      type: object
-      properties:
-        signatureId:
+        version:
+          type: integer
+        status:
+          $ref: '#/components/schemas/type_wallet_AttemptStatus'
+        block:
+          type: integer
+        blockCreatedAt:
           type: string
-          format: uuid
-          description: (Optional) ID of the request. Needs to be a valid UUID. If provided, it will be saved and returned as the signatureId of the response. If not provided, we will generate one for you and return it as the signatureId.
-        signerAddress:
+          format: date-time
+        signedTxn:
           type: string
-          description: Address of a project wallet that will be used to sign the 'message'.
-        message:
-          type: object
-          additionalProperties:
-            description: Any type
-          description: Data to be signed by the 'signerAddress'. The message's structure must be correctly defined in the 'types' mapping, specified by the 'primaryType'.
-        domain:
-          $ref: '#/components/schemas/type_wallet_EIP712Domain'
-          description: Components of the [domain seperator](https://eips.ethereum.org/EIPS/eip-712#definition-of-domainseparator). At least one field is required.
-        types:
-          type: object
-          additionalProperties:
-            type: array
-            uniqueItems: true
-            items:
-              $ref: '#/components/schemas/type_wallet_EIP712Types'
-          description: Type definitions of the domain and data you are requesting signature of. At minimum you must define the domain with key 'EIP712Domain' and the type of your message with key specified by 'primaryType'. More information [here](https://eips.ethereum.org/EIPS/eip-712#definition-of-typed-structured-data-%F0%9D%95%8A).
-        primaryType:
-          type: string
-          description: Specifies the name of the key in 'types' that describes the shape of the 'message'.
-        lookups:
-          type: array
-          uniqueItems: true
-          items:
-            $ref: '#/components/schemas/type_wallet_Lookup'
-          description: Specify a maximum of 5 contract lookups to compare data with. All lookups must be valid to receive a signature by the 'signerAddress'.
-      required:
-      - signerAddress
-      - message
-      - domain
-      - types
-      - primaryType
-      - lookups
-      title: SignTypedDataWithLookupRequest
-    type_wallet_MessageSignature:
-      type: object
-      properties:
-        signatureId:
-          type: string
-          format: uuid
-        projectId:
-          type: string
-          format: uuid
         walletAddress:
           type: string
-        chainId:
+        reverted:
+          type: boolean
+        nonce:
           type: integer
-        message:
-          type: string
-        signature:
-          type: string
         createdAt:
           type: string
           format: date-time
+        updatedAt:
+          type: string
+          format: date-time
       required:
-      - signatureId
-      - projectId
-      - walletAddress
+      - transactionId
+      - hash
       - chainId
-      - message
-      - signature
+      - version
+      - status
+      - block
+      - signedTxn
+      - walletAddress
+      - reverted
+      - nonce
       - createdAt
-      title: MessageSignature
-    type_wallet_LookupOperation:
-      type: string
-      enum:
-      - eq
-      - gt
-      - lt
-      title: LookupOperation
-    type_wallet_EIP712Types:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
-      title: EIP712Types
-    type_wallet_TransactionsByProjectResponse:
-      type: object
-      properties:
-        transactionAttempts:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_wallet_TransactionAttempt'
-        total:
-          type: integer
-      required:
-      - transactionAttempts
-      - total
-      title: TransactionsByProjectResponse
-    type_wallet_TransactionRequestsByProjectResponse:
-      type: object
-      properties:
-        transactionRequests:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_wallet_TransactionResponse'
-        total:
-          type: integer
-      required:
-      - transactionRequests
-      - total
-      title: TransactionRequestsByProjectResponse
-    type_wallet_WalletStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - INACTIVE
-      - DESTROYED
-      title: WalletStatus
+      - updatedAt
+      title: TransactionAttempt
     type_wallet_TransactionResponse:
       type: object
       properties:
@@ -699,6 +633,86 @@ components:
       - createdAt
       - updatedAt
       title: TransactionResponse
+    type_wallet_EIP712Domain:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        chainId:
+          type: integer
+        verifyingContract:
+          type: string
+        salt:
+          type: string
+      required:
+      - chainId
+      title: EIP712Domain
+    type_wallet_WalletStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - INACTIVE
+      - DESTROYED
+      title: WalletStatus
+    type_wallet_ErrorBody:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      title: ErrorBody
+    type_wallet_WalletType:
+      type: string
+      enum:
+      - BROADCAST
+      - SIGNING
+      title: WalletType
+    type_wallet_EIP712Types:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
+      title: EIP712Types
+    type_wallet_ContractLookup:
+      type: object
+      properties:
+        value:
+          type: string
+        operation:
+          $ref: '#/components/schemas/type_wallet_LookupOperation'
+        type:
+          $ref: '#/components/schemas/type_wallet_LookupType'
+        contractAddress:
+          type: string
+          description: The contract address to send request to
+        functionSignature:
+          type: string
+          description: The human readable signature to call on the contract
+        args:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: (Optional) The function arguments for the read contract call. The keys are the argument names or index from the provided 'functionSignature' and the values are the argument values.
+        chainId:
+          type: integer
+          description: The chain ID for the network (e.g. 1 for Ethereum Mainnet, 137 for Polygon Mainnet, 80001 for Polygon Mumbai). For a complete list of chain IDs, see [ChainList](https://chainlist.org/?search=&testnets=true).
+      required:
+      - value
+      - operation
+      - type
+      - contractAddress
+      - functionSignature
+      - chainId
+      description: Specify a pure or view function on a contract at 'contractAddress' on a specific 'chainId' to read data from. 'args' are optional, but must be passed if specified in the human readable 'functionSignature'
+      title: ContractLookup
     type_wallet_AttemptStatus:
       type: string
       enum:
@@ -751,7 +765,46 @@ components:
       - updatedAt
       - walletType
       title: WalletWithTxCountAndBalance
-    type_wallet_SignTypedDataRequest:
+    type_wallet_SignatureResponse:
+      type: object
+      properties:
+        message:
+          description: The raw data requested to be signed.
+        signature:
+          type: string
+          description: The signature of 'message' by the 'signerAddress'.
+        signerAddress:
+          type: string
+          description: The address of the signer of the 'signature'.
+        signatureId:
+          type: string
+          format: uuid
+          description: UUID of the signature request.
+      required:
+      - message
+      - signature
+      - signerAddress
+      - signatureId
+      title: SignatureResponse
+    type_wallet_TransactionRequestsByProjectResponse:
+      type: object
+      properties:
+        transactionRequests:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_wallet_TransactionResponse'
+        total:
+          type: integer
+      required:
+      - transactionRequests
+      - total
+      title: TransactionRequestsByProjectResponse
+    type_wallet_LookupType:
+      type: string
+      enum:
+      - contract
+      title: LookupType
+    type_wallet_SignTypedDataWithLookupRequest:
       type: object
       properties:
         signatureId:
@@ -780,115 +833,24 @@ components:
         primaryType:
           type: string
           description: Specifies the name of the key in 'types' that describes the shape of the 'message'.
+        lookups:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/type_wallet_Lookup'
+          description: Specify a maximum of 5 contract lookups to compare data with. All lookups must be valid to receive a signature by the 'signerAddress'.
       required:
       - signerAddress
       - message
       - domain
       - types
       - primaryType
-      title: SignTypedDataRequest
-    type_wallet_EIP712Domain:
-      type: object
-      properties:
-        name:
-          type: string
-        version:
-          type: string
-        chainId:
-          type: integer
-        verifyingContract:
-          type: string
-        salt:
-          type: string
-      required:
-      - chainId
-      title: EIP712Domain
-    type_wallet_WalletType:
-      type: string
-      enum:
-      - BROADCAST
-      - SIGNING
-      title: WalletType
-    type_wallet_ErrorBody:
-      type: object
-      properties:
-        message:
-          type: string
-      required:
-      - message
-      title: ErrorBody
-    type_wallet_SignatureResponse:
-      type: object
-      properties:
-        message:
-          description: The raw data requested to be signed.
-        signature:
-          type: string
-          description: The signature of 'message' by the 'signerAddress'.
-        signerAddress:
-          type: string
-          description: The address of the signer of the 'signature'.
-        signatureId:
-          type: string
-          format: uuid
-          description: UUID of the signature request.
-      required:
-      - message
-      - signature
-      - signerAddress
-      - signatureId
-      title: SignatureResponse
-    type_wallet_TransactionAttempt:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        hash:
-          type: string
-        chainId:
-          type: integer
-        version:
-          type: integer
-        status:
-          $ref: '#/components/schemas/type_wallet_AttemptStatus'
-        block:
-          type: integer
-        blockCreatedAt:
-          type: string
-          format: date-time
-        signedTxn:
-          type: string
-        walletAddress:
-          type: string
-        reverted:
-          type: boolean
-        nonce:
-          type: integer
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-      required:
-      - transactionId
-      - hash
-      - chainId
-      - version
-      - status
-      - block
-      - signedTxn
-      - walletAddress
-      - reverted
-      - nonce
-      - createdAt
-      - updatedAt
-      title: TransactionAttempt
-    type_wallet_LookupType:
-      type: string
-      enum:
-      - contract
-      title: LookupType
+      - lookups
+      title: SignTypedDataWithLookupRequest
+    type_wallet_Lookup:
+      $ref: '#/components/schemas/type_wallet_ContractLookup'
+      description: Smart contract call with operation and value to make an assertion about onchain data. Supported operations are equal to (eq), greater than (gt), and less than (lt). The data returned by the contract in conjunction with the specified 'operation' and 'value' must be valid to receive a signature.
+      title: Lookup
     type_wallet_PersonalSignRequest:
       type: object
       properties:
@@ -906,10 +868,48 @@ components:
       - signerAddress
       - message
       title: PersonalSignRequest
-    type_wallet_Lookup:
-      $ref: '#/components/schemas/type_wallet_ContractLookup'
-      description: Smart contract call with operation and value to make an assertion about onchain data. Supported operations are equal to (eq), greater than (gt), and less than (lt). The data returned by the contract in conjunction with the specified 'operation' and 'value' must be valid to receive a signature.
-      title: Lookup
+    type_wallet_TransactionsByProjectResponse:
+      type: object
+      properties:
+        transactionAttempts:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_wallet_TransactionAttempt'
+        total:
+          type: integer
+      required:
+      - transactionAttempts
+      - total
+      title: TransactionsByProjectResponse
+    type_wallet_MessageSignature:
+      type: object
+      properties:
+        signatureId:
+          type: string
+          format: uuid
+        projectId:
+          type: string
+          format: uuid
+        walletAddress:
+          type: string
+        chainId:
+          type: integer
+        message:
+          type: string
+        signature:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+      - signatureId
+      - projectId
+      - walletAddress
+      - chainId
+      - message
+      - signature
+      - createdAt
+      title: MessageSignature
   securitySchemes:
     default:
       type: http
