@@ -56,14 +56,6 @@ paths:
               $ref: '#/components/schemas/type_transact_SendTransactionRequest'
 components:
   schemas:
-    type_transact_ErrorBody:
-      type: object
-      properties:
-        message:
-          type: string
-      required:
-      - message
-      title: ErrorBody
     type_transact_SendTransactionResponse:
       type: object
       properties:
@@ -105,6 +97,14 @@ components:
       - chainId
       - functionSignature
       title: SendTransactionRequest
+    type_transact_ErrorBody:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+      - message
+      title: ErrorBody
   securitySchemes:
     default:
       type: http

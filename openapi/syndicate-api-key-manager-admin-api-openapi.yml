@@ -392,7 +392,42 @@ paths:
           description: Error response with status 500
 components:
   schemas:
-    type_api-key-manager_admin_FunctionSignature:
+    type_api-key-manager_admin_UpdateProjectNameRequest:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      title: UpdateProjectNameRequest
+    type_api-key-manager_admin_ProjectEnvironment:
+      type: string
+      enum:
+      - staging
+      - production
+      title: ProjectEnvironment
+    type_api-key-manager_admin_CreateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        chainId:
+          type: integer
+        organizationId:
+          type: string
+          format: uuid
+        numWallets:
+          type: integer
+          description: Number of wallets to create for the project. Defaults to 1. Max is 10.
+      required:
+      - name
+      - environment
+      - chainId
+      - organizationId
+      title: CreateProjectRequest
+    type_api-key-manager_admin_Project:
       type: object
       properties:
         id:
@@ -403,33 +438,30 @@ components:
         updatedAt:
           type: string
           format: date-time
-        signature:
+        name:
           type: string
-        functionAbi:
-          description: JSON ABI of the function signature. Null if function signature is unable to be parsed.
-        hashedSignature:
-          type: string
-        contractId:
+        environment:
+          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
+        organizationId:
           type: string
           format: uuid
-        payable:
-          type: boolean
+        contracts:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
+        allowlistIpRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
       required:
       - id
       - createdAt
-      - signature
-      - hashedSignature
-      - contractId
-      - payable
-      title: FunctionSignature
-    type_api-key-manager_admin_UpdateProjectNameRequest:
-      type: object
-      properties:
-        name:
-          type: string
-      required:
       - name
-      title: UpdateProjectNameRequest
+      - environment
+      - organizationId
+      - contracts
+      - allowlistIpRanges
+      title: Project
     type_api-key-manager_admin_Contract:
       type: object
       properties:
@@ -469,7 +501,7 @@ components:
       - functionSignatures
       - projectId
       title: Contract
-    type_api-key-manager_admin_Project:
+    type_api-key-manager_admin_FunctionSignature:
       type: object
       properties:
         id:
@@ -480,45 +512,25 @@ components:
         updatedAt:
           type: string
           format: date-time
-        name:
+        signature:
           type: string
-        environment:
-          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
-        organizationId:
+        functionAbi:
+          description: JSON ABI of the function signature. Null if function signature is unable to be parsed.
+        hashedSignature:
+          type: string
+        contractId:
           type: string
           format: uuid
-        contracts:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_api-key-manager_admin_Contract'
-        allowlistIpRanges:
-          type: array
-          items:
-            $ref: '#/components/schemas/type_api-key-manager_admin_AllowlistIpRange'
+        payable:
+          type: boolean
       required:
       - id
       - createdAt
-      - name
-      - environment
-      - organizationId
-      - contracts
-      - allowlistIpRanges
-      title: Project
-    type_api-key-manager_admin_CreateAllowedIPRangeRequest:
-      type: object
-      properties:
-        projectId:
-          type: string
-        ipRange:
-          type: string
-          description: The IP range to allow, specified in CIDR notation.
-        note:
-          type: string
-          description: Must be alphanumeric and may include spaces, . ! ? , ' -
-      required:
-      - projectId
-      - ipRange
-      title: CreateAllowedIPRangeRequest
+      - signature
+      - hashedSignature
+      - contractId
+      - payable
+      title: FunctionSignature
     type_api-key-manager_admin_AuthorizeContractWithJSONABIRequest:
       type: object
       properties:
@@ -545,6 +557,21 @@ components:
       - projectId
       - abi
       title: AuthorizeContractWithJSONABIRequest
+    type_api-key-manager_admin_CreateAllowedIPRangeRequest:
+      type: object
+      properties:
+        projectId:
+          type: string
+        ipRange:
+          type: string
+          description: The IP range to allow, specified in CIDR notation.
+        note:
+          type: string
+          description: Must be alphanumeric and may include spaces, . ! ? , ' -
+      required:
+      - projectId
+      - ipRange
+      title: CreateAllowedIPRangeRequest
     type_api-key-manager_admin_AuthorizeContractWithFunctionSignaturesRequest:
       type: object
       properties:
@@ -571,12 +598,6 @@ components:
       - projectId
       - functionSignatures
       title: AuthorizeContractWithFunctionSignaturesRequest
-    type_api-key-manager_admin_ProjectEnvironment:
-      type: string
-      enum:
-      - staging
-      - production
-      title: ProjectEnvironment
     type_api-key-manager_admin_AllowlistIpRange:
       type: object
       properties:
@@ -599,27 +620,6 @@ components:
       - ipRange
       - projectId
       title: AllowlistIpRange
-    type_api-key-manager_admin_CreateProjectRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        environment:
-          $ref: '#/components/schemas/type_api-key-manager_admin_ProjectEnvironment'
-        chainId:
-          type: integer
-        organizationId:
-          type: string
-          format: uuid
-        numWallets:
-          type: integer
-          description: Number of wallets to create for the project. Defaults to 1. Max is 10.
-      required:
-      - name
-      - environment
-      - chainId
-      - organizationId
-      title: CreateProjectRequest
   securitySchemes:
     default:
       type: http
