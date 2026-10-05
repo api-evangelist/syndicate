@@ -1,0 +1,12 @@
+{
+ "url": "https://tc.docs.syndicate.io/openapi.json",
+ "requested_url": "https://tc.docs.syndicate.io/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 37388,
+ "sha256": "fa6bec3ef76b9079123356bb7fe1d517aaf962ff6bba353be1f43a0dd7baa547",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
